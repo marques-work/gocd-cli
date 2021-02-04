@@ -167,7 +167,7 @@ func TestSetServerURLValidatesURL(t *testing.T) {
 	as.err("Must specify a url", c.SetServerUrl(""))
 	as.err("server-url must include protocol and hostname", c.SetServerUrl("foo.bar"))
 	as.err("server-url must include protocol and hostname", c.SetServerUrl("http://"))
-	as.err("parse \"http://localhost:foo/bar\": invalid port \":foo\" after host", c.SetServerUrl("http://localhost:foo/bar"))
+	as.err("parse http://localhost:foo/bar: invalid port \":foo\" after host", c.SetServerUrl("http://localhost:foo/bar"))
 	as.err("server-url must end with /go", c.SetServerUrl("http://localhost:8080/bar"))
 	as.eq("", c.GetServerUrl())
 }
